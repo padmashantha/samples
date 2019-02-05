@@ -12,10 +12,10 @@ pipeline {
           steps {
             echo 'scanning files'
             script {
-                     scannerHome = tool 'SonarScanner';
+                     scannerHome = tool 'scanner';
             }
              withSonarQubeEnv('SonarQube') {
-                 bat "${scannerHome}/bin/sonar-scanner.sh" 
+                 sh "${scannerHome}/bin/sonar-scanner.sh" 
             }
           }
        }
