@@ -3,9 +3,10 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        dir("spring-demo") {
+        dir(path: 'spring-demo') {
           sh 'mvn clean install test'
         }
+
       }
     }
   }
