@@ -19,27 +19,28 @@ pipeline {
             }
           }
        }
-    }
-    stage ('Upload') {
-      steps {
-            rtBuildInfo (
-                captureEnv: true,
-            )
-            rtUpload (
-                serverId: "my-artifactory",
-                spec:
-                    """{
-                      "files": [
-                        {
-                          "pattern": "spring-demo/**/*.jar",
-                          "target": "libs-snapshot-local/"
-                        }
-                     ]
-                    }"""
-            )
-            rtPublishBuildInfo (
-                serverId: "my-artifactory"
-            )
+
+      stage ('Upload') {
+        steps {
+              rtBuildInfo (
+                  captureEnv: true,
+              )
+              rtUpload (
+                  serverId: "my-artifactory",
+                  spec:
+                      """{
+                        "files": [
+                          {
+                            "pattern": "spring-demo/**/*.jar",
+                            "target": "libs-snapshot-local/"
+                          }
+                       ]
+                      }"""
+              )
+              rtPublishBuildInfo (
+                  serverId: "my-artifactory"
+              )
+        }
       }
-    }
+  }
 }
