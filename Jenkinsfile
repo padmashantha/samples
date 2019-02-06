@@ -32,7 +32,7 @@ pipeline {
                         "files": [
                           {
                             "pattern": "spring-demo/**/*.jar",
-                            "target": "libs-snapshot-local/"
+                            "target": "bc-repo/"
                           }
                        ]
                       }"""
